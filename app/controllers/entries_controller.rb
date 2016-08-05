@@ -1,0 +1,27 @@
+class EntriesController < ApplicationController
+
+  def index
+
+    @entries = Entry.all
+    @entry = Entry.new
+
+  end
+
+    def create
+    @entry = Entry.new(entry_params)
+    if @entry.save
+      redirect_to entries_path
+    else
+      raise "Cannot Save!"
+    end
+  end
+
+
+  private
+
+  def entry_params
+    params.require(:entry).permit(:author, :photo_url, :date_taken)
+  end
+
+
+end
