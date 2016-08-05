@@ -26,13 +26,12 @@ class EntriesController < ApplicationController
     def edit
     @entry = Entry.find(params[:id])
 
-    redirect_to edit_entry_path
   end
 
   def update
     @entry = Entry.find(params[:id])
     if @entry.update(entry_params)
-      redirect_to (@entry)
+      redirect_to entries_path
     else
       render "edit"
     end
