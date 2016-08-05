@@ -52,7 +52,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:author, :photo_url, :date_taken)
+    params.require(:entry).permit(:author, :photo_url, :date_taken, :caption)
   end
 
 
