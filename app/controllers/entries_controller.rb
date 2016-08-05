@@ -7,6 +7,10 @@ class EntriesController < ApplicationController
 
   end
 
+  def show
+    @entry = Entry.find(params[:id])
+  end
+
   def create
     @entry = Entry.new(entry_params)
     if @entry.save
@@ -16,16 +20,20 @@ class EntriesController < ApplicationController
     end
   end
 
-  def update
+  def edit
     @entry = Entry.find(params[:id])
 
-    if @entry.save
-      redirect_to entries_path
-    else
-      raise "Cannot Save!"
-    end
+    redirect_to edit_entry_path
   end
 
+  def update
+    @entry = Entry.find(params[:id])
+    if @entry.update(entry_params)
+      redirect_to @entry, notice: "You changed something"
+    else
+      render :edit
+    end
+  end
 
   def destroy
     @entry = Entry.find(params[:id])
