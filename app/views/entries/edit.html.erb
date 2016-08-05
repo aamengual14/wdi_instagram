@@ -1,1 +1,16 @@
+<<<<<<< HEAD
 <%= render "form" %>
+=======
+<%= form_for @entry do |f| %>
+  <%= f.label :author %>:
+  <%= f.text_field :author %><br />
+
+  <%= f.label :photo_url %>:
+  <%= f.text_field :photo_url %><br />
+
+  <%= f.label :date_taken %>:
+  <%= f.text_field :date_taken %><br />
+
+  <%= f.submit %>
+<% end %>
+>>>>>>> b8230231a6a2b1318bf80e0c7bb89cc611eab263

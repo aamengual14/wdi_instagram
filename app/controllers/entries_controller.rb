@@ -12,6 +12,8 @@ class EntriesController < ApplicationController
     redirect_to entry_path
   end
 
+
+
   def create
     @entry = Entry.new(entry_params)
     if @entry.save
@@ -21,19 +23,23 @@ class EntriesController < ApplicationController
     end
   end
 
-  def update
+    def edit
     @entry = Entry.find(params[:id])
 
-    if @entry.save
-      redirect_to entries_path
+    redirect_to edit_entry_path
+  end
+
+  def update
+    @entry = Entry.find(params[:id])
+    if @entry.update(entry_params)
+      redirect_to (@entry)
     else
-      raise "Cannot Save!"
+      render "edit"
     end
   end
 
-def edit
-    @pizza_place = PizzaPlace.find params[:id]
-end
+
+
 
 
   def destroy

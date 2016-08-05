@@ -1,6 +1,8 @@
 <% @entries.each do |entry| %>
   <div>
-    <h1><%= link_to entry.author,entry_path(entry.id), target: :blank %><%= link_to fa_icon("trash"), entry_path(entry.id), method: :delete %></h1>
+
+
+    <h1><%= link_to entry.author, entry_path(entry.id), target: :blank %><%= link_to fa_icon("trash"), entry_path(entry.id), method: :delete %><%= link_to fa_icon("pencil-square-o"), edit_entry_path(entry.id) %></h1>
     <img src="<%= entry.photo_url %>" alt="photo">
     <%= entry.date_taken %>
   </div>
