@@ -1,26 +1,25 @@
 <h1> PleasantGram </h1>
 
 <% @entries.each do |entry| %>
-  <div class="entry">
-    <img src="<%= entry.photo_url %>" alt="photo">
-    <h1><%= link_to entry.author, entry_path(entry.id), target: :blank %><%= link_to fa_icon("trash"), entry_path(entry.id), method: :delete %><%= link_to fa_icon("pencil-square-o"), edit_entry_path(entry.id) %></h1>
-    <p><%= entry.date_taken %></p>
-  </div>
-<% end %>
-<div class="form">
-<%= form_for @entry do |f| %>
-  <%= f.label :author %>:
-  <%= f.text_field :author %><br />
-
-  <%= f.label :photo_url %>:
-  <%= f.text_field :photo_url %><br />
-
-  <%= f.label :date_taken %>:
-  <%= f.text_field :date_taken %><br />
-
-  <%= f.submit %>
-<% end %>
+<div class="entry">
+  <img src="<%= entry.photo_url %>" alt="photo">
+  <h1><%= link_to entry.author, entry_path(entry.id), target: :blank %><%= link_to fa_icon("trash"), entry_path(entry.id), method: :delete %><%= link_to fa_icon("pencil-square-o"), edit_entry_path(entry.id) %></h1>
+  <p><%= entry.date_taken %></p>
 </div>
+<% end %>
+
+    <%= form_for @entry do |f| %>
+    <%= f.label :author %>:
+    <%= f.text_field :author %><br />
+
+    <%= f.label :photo_url %>:
+    <%= f.text_field :photo_url %><br />
+
+    <%= f.label :date_taken %>:
+    <%= f.text_field :date_taken %><br />
+
+    <%= f.submit  %>
+    <% end %>
 
 
 
