@@ -1,7 +1,7 @@
 <% @entries.each do |entry| %>
   <div>
     <h1><%= link_to entry.author, target: :blank %><%= link_to fa_icon("trash"), entry_path(entry.id), method: :delete %></h1>
-    <%= entry.photo_url %>
+    <img src="<%= entry.photo_url %>" alt="photo">
     <%= entry.date_taken %>
   </div>
 <% end %>
