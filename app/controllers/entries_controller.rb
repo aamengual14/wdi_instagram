@@ -4,7 +4,12 @@ class EntriesController < ApplicationController
 
     @entries = Entry.all
     @entry = Entry.new
+  end
 
+  def show
+    @entry = Entry.find(params[:id])
+
+    redirect_to entry_path
   end
 
   def create
@@ -25,6 +30,10 @@ class EntriesController < ApplicationController
       raise "Cannot Save!"
     end
   end
+
+def edit
+    @pizza_place = PizzaPlace.find params[:id]
+end
 
 
   def destroy
