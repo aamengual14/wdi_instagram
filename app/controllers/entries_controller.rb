@@ -23,15 +23,14 @@ class EntriesController < ApplicationController
   def edit
     @entry = Entry.find(params[:id])
 
-    redirect_to edit_entry_path
   end
 
   def update
     @entry = Entry.find(params[:id])
     if @entry.update(entry_params)
-      redirect_to @entry, notice: "You changed something"
+      redirect_to entries_path
     else
-      render :edit
+      render "edit"
     end
   end
 
@@ -46,7 +45,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:author, :photo_url, :date_taken)
+    params.require(:entry).permit(:author, :photo_url, :date_taken, :caption)
   end
 
 
